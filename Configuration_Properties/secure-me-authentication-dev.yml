@@ -1,0 +1,8 @@
+server:
+  port: 0
+eureka:
+  client:
+    eureka-server-u-r-l-context: http://eureka:eureka@${eureka.ip}:${eureka.port}/eureka/
+    eureka-server-port: 8761
+  instance:
+    prefer-ip-address: true

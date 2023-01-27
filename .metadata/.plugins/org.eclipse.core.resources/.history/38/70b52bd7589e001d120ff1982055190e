@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: secure-me-metadata
+  profiles:
+    active:
+    - dev
+  config:
+    import:
+    - optional:configserver:http://config:config@localhost:8888
+server:
+  port: 0
+eureka:
+  client:
+    eureka-server-u-r-l-context: http://eureka:eureka@${eureka.ip}:7777/eureka/
+    eureka-server-port: 7777
