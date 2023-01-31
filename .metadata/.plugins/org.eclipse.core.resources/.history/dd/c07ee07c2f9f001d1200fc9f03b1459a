@@ -1,0 +1,5 @@
+package com.secureme.rest;
+
+public class ConnectionValidatorResource {
+
+}

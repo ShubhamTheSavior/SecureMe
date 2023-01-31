@@ -1,0 +1,5 @@
+package com.secureme.dto;
+
+public class JwtAuthenticationModel {
+
+}

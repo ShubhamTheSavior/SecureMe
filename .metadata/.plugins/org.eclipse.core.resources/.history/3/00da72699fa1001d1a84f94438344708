@@ -1,0 +1,40 @@
+package com.secureme.entity;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+
+@Entity
+public class Roles {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer roleId;
+	
+	private String roleName;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "User_Roles", 
+			joinColumns= {@JoinColumn(name = "role_id")},
+			inverseJoinColumns = {@JoinColumn(name = "user_id")})
+	
+	public Integer getRoleId() {
+		return roleId;
+	}
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
+	}
+	public String getRoleName() {
+		return roleName;
+	}
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+	
+}

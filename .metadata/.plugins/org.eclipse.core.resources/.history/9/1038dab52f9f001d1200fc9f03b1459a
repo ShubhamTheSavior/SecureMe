@@ -1,0 +1,5 @@
+package com.secureme.security;
+
+public class SecurityConstants {
+
+}
