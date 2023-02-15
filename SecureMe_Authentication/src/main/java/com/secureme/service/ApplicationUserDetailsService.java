@@ -11,12 +11,14 @@ import org.springframework.stereotype.Service;
 import com.secureme.entity.UserInfo;
 import com.secureme.repo.UserInfoRepo;
 
+
+
 @Service
 public class ApplicationUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	private UserInfoRepo userInfoRepo;
-
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 

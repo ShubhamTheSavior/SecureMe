@@ -25,8 +25,10 @@ public class WebSecurityConfiguration {
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http
 			.csrf().disable()
+			.headers().frameOptions().disable()
+			.and()
 			.authorizeHttpRequests()
-			.requestMatchers("/login/**").permitAll().anyRequest()
+			.requestMatchers("/login/**", "/h2-console/**").permitAll().anyRequest()
 			.authenticated()
 			.and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -38,7 +40,7 @@ public class WebSecurityConfiguration {
 
 	@Bean
     UserDetailsService userDetailsService() {
-        /*
+       /* 
 		UserDetails user1 = User.withUsername("user1")
             .password(passwordEncoder.encode("user1Pass"))
             .roles("USER")
@@ -51,7 +53,9 @@ public class WebSecurityConfiguration {
             .password(passwordEncoder.encode("adminPass"))
             .roles("ADMIN")
             .build();
-            */
+         return new InMemoryUserDetailsManager(user1,user2,admin);
+         */   
+        
         return new ApplicationUserDetailsService();
     }
 	
